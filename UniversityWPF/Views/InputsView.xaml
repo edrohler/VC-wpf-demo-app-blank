@@ -10,6 +10,12 @@
              x:Class="UniversityWPF.Views.InputsView"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1040">
+    <UserControl.Resources>
+        <Style TargetType="telerik:Label">
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Foreground" Value="Gray"/>
+        </Style>
+    </UserControl.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -23,7 +29,7 @@
         </Grid.ColumnDefinitions>
 
         <telerik:RadTabControl Grid.Row="0" Grid.Column="0" Grid.RowSpan="4">
-            <telerik:RadTabItem x:Name="StudentGridView" Header="Add Student" Height="70" Width="150">
+            <telerik:RadTabItem x:Name="StudentView" Header="Add Student" Height="70" Width="150">
                 <Grid Grid.Row="0" Grid.Column="0" Grid.RowSpan="3">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -77,7 +83,7 @@
                              Grid.ColumnSpan="3"
                              Text="{Binding StudentEmail}"/>
 
-                    <telerik:Label Content="Specialityh"
+                    <telerik:Label Content="Speciality"
                                    Grid.Row="3"
                                    Grid.Column="2"
                                    Grid.ColumnSpan="1"
@@ -135,6 +141,113 @@
                                        Height="Auto"
                                        Width="100"
                                        Command="{Binding AddStudentCommand}"/>
+                </Grid>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem x:Name="TeacherView" Header="Add Teacher" Height="70" Width="150">
+                <Grid Grid.Row="1" Grid.Column="0" Grid.RowSpan="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <telerik:Label Content="Add New Teacher"
+                                   Grid.Row="0"
+                                   Grid.Column="2"
+                                   Grid.ColumnSpan="4"
+                                   FontSize="45"/>
+
+                    <telerik:Label Content="Name"
+                                   Grid.Row="1"
+                                   Grid.Column="2"
+                                   Grid.ColumnSpan="1"
+                                   FontSize="20"/>
+
+                    <TextBox x:Name="TeacherNameTb"
+                             Grid.Row="1"
+                             Grid.Column="2"
+                             Grid.ColumnSpan="3"
+                             VerticalAlignment="Bottom"
+                             Text="{Binding TeacherName}"/>
+
+                    <telerik:Label Content="Email"
+                                   Grid.Row="2"
+                                   Grid.Column="2"
+                                   Grid.ColumnSpan="4"
+                                   FontSize="20"/>
+
+                    <TextBox x:Name="TeachEmailRtb"
+                             Grid.Row="2"
+                             Grid.Column="2"
+                             Grid.ColumnSpan="3"
+                             VerticalAlignment="Bottom"
+                             Text="{Binding TeacherEmail}"/>
+
+                    <telerik:Label Content="Discipline Competence"
+                                   Grid.Row="3"
+                                   Grid.Column="2"
+                                   Grid.ColumnSpan="2"
+                                   FontSize="20"/>
+
+                    <telerik:RadComboBox x:Name="TeacherDisciplineCb"
+                                         Grid.Row="3"
+                                         Grid.Column="2"
+                                         Grid.ColumnSpan="3"
+                                         VerticalAlignment="Bottom"
+                                         HorizontalAlignment="Left"
+                                         Width="350"
+                                         AllowMultipleSelection="True">
+                        <telerik:RadComboBoxItem Content="Algebra"/>
+                        <telerik:RadComboBoxItem Content="Geometry"/>
+                        <telerik:RadComboBoxItem Content="Programming"/>                        
+                        <telerik:RadComboBoxItem Content="Physics"/>
+                    </telerik:RadComboBox>
+
+                    <telerik:Label Content="Rank"
+                                   Grid.Row="4"
+                                   Grid.Column="2"
+                                   Grid.ColumnSpan="3"
+                                   FontSize="20"/>
+                    <telerik:RadComboBox x:Name="TeacherRankCb"
+                                         Grid.Row="4"
+                                         Grid.Column="2"
+                                         Grid.ColumnSpan="3"
+                                         VerticalAlignment="Bottom"
+                                         HorizontalAlignment="Left"
+                                         Width="350"
+                                         SelectedValue="{Binding TeacherRank, Mode=TwoWay}">
+                        <telerik:RadComboBoxItem Content="Professor"/>
+                        <telerik:RadComboBoxItem Content="Associate Professor"/>
+                        <telerik:RadComboBoxItem Content="Researcher"/>
+                        <telerik:RadComboBoxItem Content="Assistant"/>
+                    </telerik:RadComboBox>
+
+
+
+                    <telerik:RadButton x:Name="AddTeacherBtn"
+                                       Grid.Row="5"
+                                       Grid.Column="2"
+                                       Grid.ColumnSpan="3"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Center"
+                                       Height="Auto"
+                                       Width="100"
+                                       Content="Add"
+                                       Command="{Binding AddTeacherCommand}"/>
                 </Grid>
             </telerik:RadTabItem>
         </telerik:RadTabControl>

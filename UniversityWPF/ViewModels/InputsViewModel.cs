@@ -80,9 +80,6 @@ namespace UniversityWPF.ViewModels
 
         private void AddStudentClicked(object obj)
         {
-            _unityContainer = (UnityContainer)Application.Current.Resources["IoC"];
-            _studentService = (StudentService)_unityContainer.Resolve<IStudentService>();
-
             if (StudentSpeciality != null && StudentCourse != null)
             {
                 StudentSpeciality = ComboBoxValueExtractor(StudentSpeciality);
@@ -91,6 +88,8 @@ namespace UniversityWPF.ViewModels
 
             try
             {
+                _unityContainer = (UnityContainer)Application.Current.Resources["IoC"];
+                _studentService = (StudentService)_unityContainer.Resolve<IStudentService>();
                 _studentService.AddStudent(StudentName, StudnetEmail, StudentSpeciality, StudentCourse);
                 MessageBox.Show("Student Successfully Added!");
             }
@@ -103,9 +102,6 @@ namespace UniversityWPF.ViewModels
 
         private void AddTeacherClicked(object obj)
         {
-            _unityContainer = (UnityContainer)Application.Current.Resources["IoC"];
-            _teacherService = (TeacherService)_unityContainer.Resolve<ITeacherService>();
-
             if (TeacherRank != null)
             {
                 TeacherRank = ComboBoxValueExtractor(TeacherRank);
@@ -113,6 +109,8 @@ namespace UniversityWPF.ViewModels
 
             try
             {
+                _unityContainer = (UnityContainer)Application.Current.Resources["IoC"];
+                _teacherService = (TeacherService)_unityContainer.Resolve<ITeacherService>();
                 _teacherService.AddTeacher(TeacherName, TeacherEmail, TeacherRank);
                 MessageBox.Show("Teacher Successfully Added!");
             }
