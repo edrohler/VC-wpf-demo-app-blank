@@ -13,5 +13,37 @@
              x:Class="UniversityWPF.Views.SpreadsheetView"
              mc:Ignorable="d" 
              d:DesignHeight="750" d:DesignWidth="1040">
+
+    <Grid x:Name="SpreadsheetLayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>            
+        </Grid.RowDefinitions>
+
+        <telerik:RadSpreadsheetRibbon Grid.Row="0"
+                                      BackstageClippingElement="{Binding ElementName=SpreadsheetLayoutRoot, Mode=OneTime}"
+                                      RadSpreadsheet="{Binding ElementName=RadSpreadsheet1, Mode=OneTime}">
+        </telerik:RadSpreadsheetRibbon>
+
+        <Controls:RadSpreadsheetFormulaBar Grid.Row="1"
+                                           RadSpreadsheet="{Binding ElementName=RadSpreadsheet1, Mode=OneTime}"/>
+
+        <telerik:RadSpreadsheet x:Name="RadSpreadsheet1"
+                                Grid.Row="2"
+                                Loaded="RadSpreadsheet1_Loaded">
+            <telerik:RadSpreadsheet.FormatProviders>
+                <Txt:TxtFormatProvider/>
+                <Csv:CsvFormatProvider/>
+                <Pdf:PdfFormatProvider/>
+                <Xlsx:XlsxFormatProvider/>
+            </telerik:RadSpreadsheet.FormatProviders>
+            
+        </telerik:RadSpreadsheet>
+
+        <Controls:RadSpreadsheetStatusBar Grid.Row="3"
+                                          RadSpreadsheet="{Binding ElementName=RadSpreadsheet1, Mode=OneTime}"/>
+    </Grid>
     
 </UserControl>

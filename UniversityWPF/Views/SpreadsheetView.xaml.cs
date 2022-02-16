@@ -18,5 +18,22 @@ namespace UniversityWPF.Views
             InitializeComponent();
             _formatProvider = new XlsxFormatProvider();
         }
+
+        private void RadSpreadsheet1_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                using (Stream inputFile = new FileStream(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+                    "Spreadsheets/students-grades.xlsx"), FileMode.Open))
+                {
+                    RadSpreadsheet1.Workbook = _formatProvider.Import(inputFile);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+                throw;
+            }
+        }
     }
 }
