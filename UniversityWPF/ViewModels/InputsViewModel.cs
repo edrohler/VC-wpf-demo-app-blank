@@ -22,8 +22,8 @@ namespace UniversityWPF.ViewModels
             _teacherService = teacherService;
         }
 
+        // Teacher Properties
         private string _teacherName, _teacherEmail, _teacherRank;
-
         public string TeacherName
         {
             get { return _teacherName; }
@@ -42,17 +42,18 @@ namespace UniversityWPF.ViewModels
             set { _teacherRank = value; NotifyPropertyChanged(); }
         }
 
-        private string _studentName, _studnetEmail, _studentSpeciality, _studentCourse;
+        // Student Properties
+        private string _studentName, _studentEmail, _studentSpeciality, _studentCourse;
         public string StudentName
         {
             get { return _studentName; }
             set { _studentName = value; NotifyPropertyChanged(); }
         }
 
-        public string StudnetEmail
+        public string StudentEmail
         {
-            get { return _studnetEmail; }
-            set { _studnetEmail = value; NotifyPropertyChanged(); }
+            get { return _studentEmail; }
+            set { _studentEmail = value; NotifyPropertyChanged(); }
         }
 
         public string StudentSpeciality
@@ -67,6 +68,7 @@ namespace UniversityWPF.ViewModels
             set { _studentCourse = value; NotifyPropertyChanged(); }
         }
 
+        // Commands
         private ICommand _addStudentCommand;
         private ICommand _addTeacherCommand;
         public ICommand AddStudentCommand
@@ -90,7 +92,7 @@ namespace UniversityWPF.ViewModels
             {
                 _unityContainer = (UnityContainer)Application.Current.Resources["IoC"];
                 _studentService = (StudentService)_unityContainer.Resolve<IStudentService>();
-                _studentService.AddStudent(StudentName, StudnetEmail, StudentSpeciality, StudentCourse);
+                _studentService.AddStudent(StudentName, StudentEmail, StudentSpeciality, StudentCourse);
                 MessageBox.Show("Student Successfully Added!");
             }
             catch (ArgumentException aex)

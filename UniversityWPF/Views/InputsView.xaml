@@ -213,7 +213,7 @@
                                          AllowMultipleSelection="True">
                         <telerik:RadComboBoxItem Content="Algebra"/>
                         <telerik:RadComboBoxItem Content="Geometry"/>
-                        <telerik:RadComboBoxItem Content="Programming"/>                        
+                        <telerik:RadComboBoxItem Content="Programming"/>
                         <telerik:RadComboBoxItem Content="Physics"/>
                     </telerik:RadComboBox>
 
@@ -236,10 +236,23 @@
                         <telerik:RadComboBoxItem Content="Assistant"/>
                     </telerik:RadComboBox>
 
+                    <telerik:Label Content="Start Date"
+                                   Grid.Row="5"
+                                   Grid.Column="2"
+                                   Grid.ColumnSpan="2"
+                                   FontSize="20"/>
+
+                    <telerik:RadDatePicker x:Name="TeacherStartDateDp"
+                                           Grid.Row="5"
+                                           Grid.Column="2"
+                                           Grid.ColumnSpan="3"
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Left"
+                                           Width="350"/>
 
 
                     <telerik:RadButton x:Name="AddTeacherBtn"
-                                       Grid.Row="5"
+                                       Grid.Row="6"
                                        Grid.Column="2"
                                        Grid.ColumnSpan="3"
                                        VerticalAlignment="Bottom"
